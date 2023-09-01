@@ -1,0 +1,165 @@
+*{
+	padding: 0;
+	margin: 0;
+	box-sizing: border-box;
+}
+
+:root{
+	/*--calendarBG-color: #F6F7EB;
+	--calendarTitle-color: #393E41;
+	--calendarToday-color: #3F88C5;
+	--calendarWorkoutDay: #44BBA4;*/
+	--calendarBG-color: #F5D7E3;
+	--calendarDaysHover-color: #D3B5C1;
+	--calendarTitle-color: #A8577E;
+	--calendarToday-color: #3B429F;
+	--calendarWorkoutDay: #AA7DCE;
+	--extraColor-color: #F4A5AE;
+
+}
+
+body{
+	background: var(--extraColor-color);
+}
+
+table{
+	background: var(--calendarBG-color);
+	width:80%;	
+	font-size: 2.5em;
+	text-align: center;
+	margin: 0 auto;
+	color: #444444;
+	border:2px black solid;
+	border-top: none;
+	max-width: 1000px;
+	border-radius: 0 0 10px 10px;
+
+}
+
+table tr td{
+	padding: 10px;
+}
+
+table tr td:hover{
+	background: var(--calendarDaysHover-color);
+	cursor: pointer;
+}
+
+table tr td span::selection {
+	background: none;
+}
+
+.firstRow{
+	background: var(--calendarDaysHover-color);
+}
+
+#calendarHeader{
+	width: 80%;
+	margin: 60px auto 0 auto;
+	background: var(--calendarTitle-color);
+	color:#EEEEEE;
+	display: grid;
+	grid-template-areas: 
+		"headerYear headerYear headerYear headerYear headerYear"
+		"leftBtn headerMonth headerMonth headerMonth rightBtn";
+	text-align: center;
+	font-size: 3em;
+	border-radius: 50% 50% 0 0;
+	border: 2px black solid;
+	border-bottom: none;
+	max-width: 1000px;
+}
+
+#calendarHeader input{
+	width: 80%;
+	margin: 0 auto;
+	font-size: 1em;
+	font-weight: bold;
+	background:none;
+	color: #EEEEEE;
+	transition: background .3s, color .3s;
+	border: none;
+	border-radius:50%;
+}
+
+#leftBtn{
+	grid-area: leftBtn;
+}
+
+#rightBtn{
+	grid-area: rightBtn;
+}
+
+#calendarHeader span{
+	grid-area: headerMonth;
+	padding: 10px 0;
+	border-left: 2px var(--extraColor-color) solid;
+	border-right: 2px var(--extraColor-color) solid;
+}
+
+#calendarHeader div{
+	grid-area: headerYear;
+	border-bottom: 2px var(--extraColor-color) solid;
+	padding: 10px 0;
+	border-radius: 50%;
+	font-weight: bolder;
+}
+
+#calendarHeader input:hover{
+	background: #EEEEEE;
+	color: var(--calendarTitle-color);
+
+}
+
+.otherMonthDays{
+	opacity: .4;
+}
+
+.firstDayOfWeek{
+	color: var(--calendarToday-color)
+}
+
+.todayEvent{
+	background: var(--calendarToday-color);
+	border-radius:50%;
+	padding: .2em;
+	color:#EEEEEE;
+}
+
+/*MEDIAQUERIES*/
+
+@media screen and (max-width: 600px){
+	table{
+	width:99%;	
+	font-size: 1.8em;
+	}
+
+	#calendarHeader{
+		width: 99%;
+		font-size: 2.2em;
+	}
+}
+
+@media screen and (max-width: 400px){
+	table{
+		width:99%;	
+		font-size: 1.2em;
+	}
+
+	#calendarHeader{
+		width: 99%;
+		font-size: 1.8em;
+	}
+}
+
+@media screen and (max-width: 300px){
+	table{
+		width:99%;	
+		font-size: .9em;
+	}
+
+	#calendarHeader{
+		width: 99%;
+		font-size: 1.3em;
+	}
+}
